@@ -14,7 +14,8 @@
 
 # Praktikum
 
-Link praktikum: [link]()
+Link praktikum: [klik link](https://github.com/ferdyfebriyanto/webview_flutter/files/9524709/Pertemuan.25.-.Plugin.Web.View.Flutter.pptx)
+
 
 ## 1. Hasil Tampilan Web View
 
