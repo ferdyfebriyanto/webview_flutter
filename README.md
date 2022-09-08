@@ -37,6 +37,9 @@ Link praktikum: [klik link](https://github.com/ferdyfebriyanto/webview_flutter/f
 
 ![Hasil Web Controller dan Navigasi](./images/03.png)
 
+* Pada praktikum ini, dilakukan penambahan fungsi untuk mengontrol halaman dan navigasi.
+* Membuat file /lib/src/navigation_controls.dart untuk menampung widget navigasi.
+
 ## 4. Hasil Mengelola Cookie
 
 ![Hasil Mengelola Cookie](./images/04.png)
