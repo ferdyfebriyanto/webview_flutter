@@ -19,16 +19,6 @@ class WebViewApp extends StatefulWidget {
 }
 
 class _WebViewAppState extends State<WebViewApp> {
-  // Add from here ...
-  @override
-  void initState() {
-    if (Platform.isAndroid) {
-      WebView.platform = SurfaceAndroidWebView();
-    }
-    super.initState();
-  }
-  // ... to here.
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
