@@ -29,6 +29,8 @@ Link praktikum: [klik link](https://github.com/ferdyfebriyanto/webview_flutter/f
 
 * Dengan adanya Load Progress Event, user experience akan lebih baik karena terdapat interaksi dari interface 
 * Selama siklus pemuatan halaman WebView, ada tiga progress event dalam memuat halaman meliputi onPageStarted, onProgress, dan onPageFinished. 
+* Pada praktikum ini, dilakukan penambahan progress bar yang akan menampilkan progress dari halaman yang dimuat.
+* Membuat file lib/src/web_view_stack.dart untuk menampung widget WebView dan Progress Bar.
 
 
 ## 3. Hasil Web Controller dan Navigasi
