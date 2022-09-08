@@ -21,9 +21,15 @@ Link praktikum: [klik link](https://github.com/ferdyfebriyanto/webview_flutter/f
 
 ![Hasil Tampilan Web View](./images/01.png)
 
+* Pada langkah praktikum ini ditambahkan plugin WebView agar aplikasi dapat memuat halaman website.
+
 ## 2. Hasil Load Progress Event
 
 ![Hasil Load Progress Event](./images/02.png)
+
+* Dengan adanya Load Progress Event, user experience akan lebih baik karena terdapat interaksi dari interface 
+* Selama siklus pemuatan halaman WebView, ada tiga progress event dalam memuat halaman meliputi onPageStarted, onProgress, dan onPageFinished. 
+
 
 ## 3. Hasil Web Controller dan Navigasi
 
