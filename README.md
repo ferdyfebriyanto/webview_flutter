@@ -39,6 +39,9 @@ Link praktikum: [klik link](https://github.com/ferdyfebriyanto/webview_flutter/f
 
 * Pada praktikum ini, dilakukan penambahan fungsi untuk mengontrol halaman dan navigasi.
 * Membuat file /lib/src/navigation_controls.dart untuk menampung widget navigasi.
+* Pengontrol tersedia dengan meanfaatkan callback yang diletakkan setelah konstruksi widget WebView. 
+* Ketersediaan pengontrol ini bersifat asinkron dimana nilai kembaliannya bertipe Completer. Completer sejenis Future namun hasilnya bisa bernilai ataupun error.
+
 
 ## 4. Hasil Mengelola Cookie
 
