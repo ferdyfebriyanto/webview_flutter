@@ -1,6 +1,30 @@
 import 'dart:async';
+import 'dart:io'; // Add this import
+
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:path_provider/path_provider.dart'; // Add this import
+
+// Add from here ...
+const String kExamplePage = '''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Load file or HTML string example</title>
+</head>
+<body>
+
+<h1>Local demo page</h1>
+<p>
+ This is an example page used to demonstrate how to load a local file or HTML
+ string using the <a href="https://pub.dev/packages/webview_flutter">Flutter
+ webview</a> plugin.
+</p>
+
+</body>
+</html>
+''';
+// ... to here.
 
 enum _MenuOptions {
   navigationDelegate,
@@ -9,6 +33,12 @@ enum _MenuOptions {
   addCookie,
   setCookie,
   removeCookie,
+  // Add from here ...
+  loadFlutterAsset,
+  loadLocalFile,
+  loadHtmlString,
+  // ... to here.
+
 }
 
 class Menu extends StatefulWidget {
@@ -33,7 +63,6 @@ class _MenuState extends State<Menu> {
               case _MenuOptions.navigationDelegate:
                 controller.data!.loadUrl('https://youtube.com');
                 break;
-              // Add from here ...
               case _MenuOptions.clearCookies:
                 _onClearCookies();
                 break;
@@ -49,7 +78,18 @@ class _MenuState extends State<Menu> {
               case _MenuOptions.removeCookie:
                 _onRemoveCookie(controller.data!);
                 break;
+              // Add from here ...
+              case _MenuOptions.loadFlutterAsset:
+                _onLoadFlutterAssetExample(controller.data!, context);
+                break;
+              case _MenuOptions.loadLocalFile:
+                _onLoadLocalFileExample(controller.data!, context);
+                break;
+              case _MenuOptions.loadHtmlString:
+                _onLoadHtmlStringExample(controller.data!, context);
+                break;
               // ... to here.
+
             }
           },
           itemBuilder: (context) => [
@@ -57,7 +97,6 @@ class _MenuState extends State<Menu> {
               value: _MenuOptions.navigationDelegate,
               child: Text('Navigate to YouTube'),
             ),
-            // Add from here ...
             const PopupMenuItem<_MenuOptions>(
               value: _MenuOptions.clearCookies,
               child: Text('Clear cookies'),
@@ -77,6 +116,19 @@ class _MenuState extends State<Menu> {
             const PopupMenuItem<_MenuOptions>(
               value: _MenuOptions.removeCookie,
               child: Text('Remove cookie'),
+            ),
+            // Add from here ...
+            const PopupMenuItem<_MenuOptions>(
+              value: _MenuOptions.loadFlutterAsset,
+              child: Text('Load Flutter Asset'),
+            ),
+            const PopupMenuItem<_MenuOptions>(
+              value: _MenuOptions.loadHtmlString,
+              child: Text('Load HTML string'),
+            ),
+            const PopupMenuItem<_MenuOptions>(
+              value: _MenuOptions.loadLocalFile,
+              child: Text('Load local file'),
             ),
             // ... to here.
           ],
@@ -143,5 +195,36 @@ class _MenuState extends State<Menu> {
         content: Text('Custom cookie removed.'),
       ),
     );
+  }
+
+  // Fungsi memuat HTML melalui file assets
+  Future<void> _onLoadFlutterAssetExample(
+      WebViewController controller, BuildContext context) async {
+    await controller.loadFlutterAsset('assets/www/index.html');
+  }
+
+  //Fungsi memuat HTML melalui file lokal(temporary)
+  Future<void> _onLoadLocalFileExample(
+      WebViewController controller, BuildContext context) async {
+    final String pathToIndex = await _prepareLocalFile();
+
+    await controller.loadFile(pathToIndex);
+  }
+
+  // Fungsi menyiapkan file lokal dengan bantuan plugin pat_provider dan dart:io
+  static Future<String> _prepareLocalFile() async {
+    final String tmpDir = (await getTemporaryDirectory()).path;
+    final File indexFile = File('$tmpDir/www/index.html');
+
+    await Directory('$tmpDir/www').create(recursive: true);
+    await indexFile.writeAsString(kExamplePage);
+
+    return indexFile.path;
+  }
+
+  // Fungsi memuat HTML melalui variabel string
+  Future<void> _onLoadHtmlStringExample(
+      WebViewController controller, BuildContext context) async {
+    await controller.loadHtmlString(kExamplePage);
   }
 }
