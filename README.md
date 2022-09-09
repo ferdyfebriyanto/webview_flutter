@@ -47,6 +47,10 @@ Link praktikum: [klik link](https://github.com/ferdyfebriyanto/webview_flutter/f
 
 ![Hasil Mengelola Cookie](./images/04.png)
 
+* Cookie adalah istilah untuk kumpulan informasi yang berisi rekam jejak dan aktivitas ketika menelusuri sebuah website. 
+* Aplikasi Flutter dapat mengelola cookie di WebView dengan menggunakan fungsi pada class CookieManager. 
+* Cookie dikelola dengan menampilkan daftar cookie, menghapus daftar cookie, menghapus cookie, dan menetapkan cookie baru pada tampilan menu. 
+
 ## 5. Hasil Membuat String HTML
 
 ![Hasil Tampilan Web View](./images/05.png)
