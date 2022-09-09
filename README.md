@@ -55,3 +55,6 @@ Link praktikum: [klik link](https://github.com/ferdyfebriyanto/webview_flutter/f
 
 ![Hasil Tampilan Web View](./images/05.png)
 
+* Menginstall path_provider
+* Membuat folder assets/www, dan didalamnya ada index.html dan styles.css
+
