@@ -1,6 +1,9 @@
-import 'dart:async'; // Add this import
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_webview/src/navigation_controls.dart'; //Add this import
+import 'package:flutter_webview/src/navigation_controls.dart';
+
+import 'src/menu.dart'; // Add this import
 import 'package:flutter_webview/src/web_view_stack.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -20,22 +23,20 @@ class WebViewApp extends StatefulWidget {
 }
 
 class _WebViewAppState extends State<WebViewApp> {
-  final controller =
-      Completer<WebViewController>(); // Instantiate the controller
+  final controller = Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter WebView'),
-        // Add from here ...
         actions: [
           NavigationControls(controller: controller),
+          Menu(controller: controller), // Add this line
         ],
-        // ... to here.
       ),
       body: WebViewStack(
-        controller: controller, // Add the controller argumen
+        controller: controller,
       ),
     );
   }
